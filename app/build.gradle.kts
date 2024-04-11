@@ -94,8 +94,8 @@ dependencies {
     ksp(libs.dagger.hilt.navigation.compiler)
     //Retrofit
     implementation(libs.retrofit)
-    implementation(libs.okhttp3)
-    implementation(libs.moshi)
+    implementation(libs.okhttp3.logging.interceptor)
+    implementation(libs.moshi.converter)
     //Navigation
     implementation(libs.androidx.navigation.compose)
     //Coil
