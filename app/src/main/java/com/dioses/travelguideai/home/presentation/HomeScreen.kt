@@ -1,8 +1,13 @@
 package com.dioses.travelguideai.home.presentation
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.dioses.travelguideai.home.presentation.components.HomeSearchBar
 
 /****
  * Project: TravelGuideAI
@@ -14,5 +19,14 @@ import androidx.hilt.navigation.compose.hiltViewModel
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
-    Text(text = "Soy la Home Screen!")
+    Column(modifier = Modifier.fillMaxSize()) {
+        Text(text = "A donde viajas?")
+        HomeSearchBar(
+            onSearch = {},
+            placeholder = "Pais, Ciudad",
+            inputText = "",
+            onValueChange = {},
+            modifier = Modifier.fillMaxWidth()
+        )
+    }
 }
