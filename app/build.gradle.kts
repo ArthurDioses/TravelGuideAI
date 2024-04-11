@@ -76,4 +76,6 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.okhttp3)
     implementation(libs.moshi)
+    //Navigation
+    implementation(libs.androidx.navigation.compose)
 }
