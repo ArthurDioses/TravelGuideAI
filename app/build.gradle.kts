@@ -75,6 +75,9 @@ dependencies {
     //Hilt
     implementation(libs.dagger.hilt)
     ksp(libs.dagger.hilt.compiler)
+    //Hilt Navigation
+    implementation(libs.dagger.hilt.navigation)
+    ksp(libs.dagger.hilt.navigation.compiler)
     //Retrofit
     implementation(libs.retrofit)
     implementation(libs.okhttp3)
