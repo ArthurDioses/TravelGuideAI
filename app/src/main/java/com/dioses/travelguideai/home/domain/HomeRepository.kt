@@ -7,5 +7,5 @@ package com.dioses.travelguideai.home.domain
  * All rights reserved 2024.
  ****/
 interface HomeRepository {
-    suspend fun getTravelGuide(location: String): Result<String>
+    suspend fun getTravelGuide(location: String, settings: HomeFilterSettings): Result<String>
 }

@@ -1,4 +1,4 @@
-package com.dioses.travelguideai.home.presentation
+package com.dioses.travelguideai.home.domain
 
 /****
  * Project: TravelGuideAI

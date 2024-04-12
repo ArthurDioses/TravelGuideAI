@@ -1,5 +1,7 @@
 package com.dioses.travelguideai.home.presentation
 
+import com.dioses.travelguideai.home.domain.HomeFilterSettings
+
 /****
  * Project: TravelGuideAI
  * From: com.dioses.travelguideai.home.presentation
