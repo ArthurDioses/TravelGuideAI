@@ -13,4 +13,5 @@ data class HomeState(
     val showDialog: Boolean = false,
     val filterSettings: HomeFilterSettings = HomeFilterSettings(),
     val filterSettingsBackup: HomeFilterSettings = filterSettings,
+    val chatReply: String? = null,
 )

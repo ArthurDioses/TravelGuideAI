@@ -34,6 +34,12 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
         state = state.copy(showDialog = false, filterSettings = state.filterSettingsBackup)
     }
 
+    fun onBackPress() {
+        state = state.copy(
+            chatReply = null
+        )
+    }
+
     fun onSettingsChange(action: HomeFilterDialogAction) {
         when (action) {
             HomeFilterDialogAction.OnApplyClick -> {
@@ -77,7 +83,7 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
     fun search() {
         viewModelScope.launch {
             repository.getTravelGuide(state.searchText, state.filterSettings).onSuccess {
-                println(it)
+                state = state.copy(chatReply = it)
             }.onFailure { println("Hubo un error ${it.message}") }
         }
     }
