@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,7 +30,7 @@ fun HomeFilterIncrement(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        HomeFilterSettingsButton(onMinus, Icons.Default.Delete)
+        HomeFilterSettingsButton(onMinus, Icons.Default.Remove)
         Text(text = "$number")
         HomeFilterSettingsButton(onPlus, Icons.Default.Add)
     }

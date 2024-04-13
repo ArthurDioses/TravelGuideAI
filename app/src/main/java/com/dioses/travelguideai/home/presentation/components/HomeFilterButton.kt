@@ -3,14 +3,15 @@ package com.dioses.travelguideai.home.presentation.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Tune
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.dioses.travelguideai.ui.theme.FilterColor
+import com.dioses.travelguideai.ui.theme.FilterGray
 
 /****
  * Project: TravelGuideAI
@@ -26,9 +27,9 @@ fun HomeFilerButton(
 ) {
     IconButton(
         onClick = onClick,
-        modifier = modifier.background(color = Color.LightGray, shape = RoundedCornerShape(13.dp))
+        modifier = modifier.background(color = FilterGray, shape = RoundedCornerShape(13.dp))
     ) {
-        Icon(imageVector = Icons.Default.List, contentDescription = "filter", tint = Color.Gray)
+        Icon(imageVector = Icons.Default.Tune, contentDescription = "filter", tint = FilterColor)
     }
 }
 

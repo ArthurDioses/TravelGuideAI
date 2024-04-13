@@ -2,6 +2,7 @@ package com.dioses.travelguideai.home.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -12,6 +13,7 @@ import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.tooling.preview.Preview
 import com.dioses.travelguideai.home.domain.model.Region
+import com.dioses.travelguideai.ui.theme.DarkGreen
 
 /****
  * Project: TravelGuideAI
@@ -32,8 +34,11 @@ fun HomePopularFilter(
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         Region.entries.forEach {
-            val textColor = if (it == selectedRegion) Color.Green else Color.Gray
-            TextButton(onClick = { selectRegion(it) }) {
+            val textColor = if (it == selectedRegion) DarkGreen else Color.Gray
+            TextButton(
+                onClick = { selectRegion(it) },
+                colors = ButtonDefaults.textButtonColors(contentColor = DarkGreen)
+            ) {
                 Text(text = it.name.lowercase().capitalize(Locale.current), color = textColor)
             }
         }

@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -14,6 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.dioses.travelguideai.ui.theme.BackgroundGray
+import com.dioses.travelguideai.ui.theme.DarkGreen
 
 /****
  * Project: TravelGuideAI
@@ -22,7 +23,6 @@ import androidx.compose.ui.unit.dp
  * All rights reserved 2024.
  ****/
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeSearchBar(
     onSearch: () -> Unit,
@@ -35,7 +35,7 @@ fun HomeSearchBar(
         value = inputText,
         onValueChange = onValueChange,
         placeholder = { Text(text = placeholder) },
-        modifier = modifier.background(color = Color.LightGray, shape = RoundedCornerShape(86.dp)),
+        modifier = modifier.background(color = BackgroundGray, shape = RoundedCornerShape(86.dp)),
         singleLine = true,
         trailingIcon = {
             HomeSearchButton(
@@ -46,7 +46,8 @@ fun HomeSearchBar(
         },
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = Color.Transparent,
-            unfocusedBorderColor = Color.Transparent
+            unfocusedBorderColor = Color.Transparent,
+            cursorColor = DarkGreen
         )
     )
 }

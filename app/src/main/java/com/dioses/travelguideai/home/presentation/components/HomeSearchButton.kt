@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
+import com.dioses.travelguideai.ui.theme.DarkGreen
 
 /****
  * Project: TravelGuideAI
@@ -26,7 +27,7 @@ fun HomeSearchButton(
     modifier: Modifier = Modifier,
 ) {
     IconButton(
-        onClick = onClick, modifier = modifier.background(Color.Green, shape = CircleShape)
+        onClick = onClick, modifier = modifier.background(color = DarkGreen, shape = CircleShape)
     ) {
         Icon(imageVector = icon, contentDescription = "search", tint = Color.White)
     }

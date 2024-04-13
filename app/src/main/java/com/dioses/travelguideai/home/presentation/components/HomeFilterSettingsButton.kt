@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.dioses.travelguideai.ui.theme.DarkGreen
 
 /****
  * Project: TravelGuideAI
@@ -30,13 +31,16 @@ fun HomeFilterSettingsButton(
     OutlinedButton(
         onClick = onClick,
         modifier = modifier.defaultMinSize(ButtonDefaults.MinHeight, ButtonDefaults.MinHeight),
-        colors = ButtonDefaults.outlinedButtonColors(containerColor = Color.Transparent),
+        colors = ButtonDefaults.outlinedButtonColors(
+            containerColor = Color.Transparent,
+            contentColor = DarkGreen
+        ),
         shape = RoundedCornerShape(10.dp),
         contentPadding = PaddingValues(0.dp)
     ) {
         if (icon != null) {
             Icon(
-                imageVector = icon, contentDescription = "plus", tint = Color.Green
+                imageVector = icon, contentDescription = "plus", tint = DarkGreen
             )
         }
     }

@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
@@ -20,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.dioses.travelguideai.home.presentation.HomeFilterDialogAction
 import com.dioses.travelguideai.home.domain.model.HomeFilterSettings
+import com.dioses.travelguideai.ui.theme.DarkGreen
 
 /****
  * Project: TravelGuideAI
@@ -95,7 +97,8 @@ fun HomeFilterDialog(
                         onClick = { onAction(HomeFilterDialogAction.OnApplyClick) },
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(16.dp)
+                            .padding(16.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = DarkGreen)
                     ) {
                         Text(text = "Aplicar")
                     }
