@@ -33,6 +33,7 @@ import coil.compose.AsyncImage
 import com.dioses.travelguideai.home.presentation.components.HomeFilerButton
 import com.dioses.travelguideai.home.presentation.components.HomeFilterDialog
 import com.dioses.travelguideai.home.presentation.components.HomePopularFilter
+import com.dioses.travelguideai.home.presentation.components.HomePopularPlaceItem
 import com.dioses.travelguideai.home.presentation.components.HomeSearchBar
 
 /****
@@ -131,30 +132,12 @@ fun HomeScreen(
                             horizontalArrangement = Arrangement.spacedBy(24.dp),
                             contentPadding = PaddingValues(horizontal = 16.dp)
                         ) {
-                            items(state.popularPlaces) {
-                                Box(
-                                    modifier = Modifier
-                                        .size(150.dp, 250.dp)
-                                        .clip(RoundedCornerShape(20.dp))
-                                        .clickable {
-                                            viewModel.onSearchTextChange("${it.country}, ${it.city}")
-                                        }
-                                ) {
-                                    AsyncImage(
-                                        model = it.image,
-                                        contentDescription = "${it.country} ${it.city}",
-                                        contentScale = ContentScale.Crop
-                                    )
-                                    Text(
-                                        text = "${it.country}, ${it.city}",
-                                        fontSize = 13.sp,
-                                        fontWeight = FontWeight.Black,
-                                        modifier = Modifier
-                                            .align(Alignment.BottomStart)
-                                            .padding(12.dp),
-                                        color = Color.White
-                                    )
-                                }
+                            items(state.popularPlaces) { place ->
+                                HomePopularPlaceItem(
+                                    place = place,
+                                    onPlaceClick = {
+                                        viewModel.onSearchTextChange(it)
+                                    })
                             }
                         }
                     }
