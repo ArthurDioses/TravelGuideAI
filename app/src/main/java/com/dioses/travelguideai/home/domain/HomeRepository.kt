@@ -1,5 +1,8 @@
 package com.dioses.travelguideai.home.domain
 
+import com.dioses.travelguideai.home.domain.model.HomeFilterSettings
+import com.dioses.travelguideai.home.domain.model.Place
+
 /****
  * Project: TravelGuideAI
  * From: com.dioses.travelguideai.home.domain
@@ -8,4 +11,6 @@ package com.dioses.travelguideai.home.domain
  ****/
 interface HomeRepository {
     suspend fun getTravelGuide(location: String, settings: HomeFilterSettings): Result<String>
+
+    suspend fun getPopularPlaces():Result<List<Place>>
 }

@@ -2,8 +2,10 @@ package com.dioses.travelguideai.home.data
 
 import com.dioses.travelguideai.home.data.remote.ChatGptApi
 import com.dioses.travelguideai.home.data.remote.dto.ChatRequestDto
-import com.dioses.travelguideai.home.domain.HomeFilterSettings
+import com.dioses.travelguideai.home.domain.model.HomeFilterSettings
 import com.dioses.travelguideai.home.domain.HomeRepository
+import com.dioses.travelguideai.home.domain.model.Place
+import com.dioses.travelguideai.home.domain.model.Region
 
 /****
  * Project: TravelGuideAI
@@ -36,5 +38,18 @@ class HomeRepositoryImpl(
         } catch (e: Exception) {
             Result.failure(e)
         }
+    }
+
+    override suspend fun getPopularPlaces(): Result<List<Place>> {
+        return Result.success(
+            listOf(
+                Place("USA", "New York", Region.AMERICA),
+                Place("Argentina", "Salta", Region.AMERICA),
+                Place("España", "Barcelona", Region.EUROPA),
+                Place("Australia", "Sydney", Region.OCEANIA),
+                Place("Japon", "Tokio", Region.ASIA),
+                Place("Italia", "Roma", Region.EUROPA),
+            )
+        )
     }
 }

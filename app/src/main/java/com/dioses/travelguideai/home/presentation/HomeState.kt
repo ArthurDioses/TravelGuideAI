@@ -1,6 +1,8 @@
 package com.dioses.travelguideai.home.presentation
 
-import com.dioses.travelguideai.home.domain.HomeFilterSettings
+import com.dioses.travelguideai.home.domain.model.HomeFilterSettings
+import com.dioses.travelguideai.home.domain.model.Place
+import com.dioses.travelguideai.home.domain.model.Region
 
 /****
  * Project: TravelGuideAI
@@ -14,4 +16,7 @@ data class HomeState(
     val filterSettings: HomeFilterSettings = HomeFilterSettings(),
     val filterSettingsBackup: HomeFilterSettings = filterSettings,
     val chatReply: String? = null,
+    val selectedRegion: Region = Region.TODAS,
+    val popularPlaces: List<Place> = emptyList(),
+    val popularPlacesBackup: List<Place> = popularPlaces,
 )

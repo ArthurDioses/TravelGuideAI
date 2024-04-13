@@ -6,6 +6,7 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dioses.travelguideai.home.domain.HomeRepository
+import com.dioses.travelguideai.home.domain.model.Region
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -22,16 +23,34 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
     var state by mutableStateOf(HomeState())
         private set
 
+    init {
+        viewModelScope.launch {
+            repository.getPopularPlaces().onSuccess {
+                state = state.copy(
+                    popularPlaces = it,
+                    popularPlacesBackup = it
+                )
+            }.onFailure { println("Hubo un error ${it.message}") }
+        }
+    }
+
     fun onSearchTextChange(newText: String) {
-        state = state.copy(searchText = newText)
+        state = state.copy(
+            searchText = newText
+        )
     }
 
     fun onFilterClick() {
-        state = state.copy(showDialog = true)
+        state = state.copy(
+            showDialog = true
+        )
     }
 
     fun onFilterDismiss() {
-        state = state.copy(showDialog = false, filterSettings = state.filterSettingsBackup)
+        state = state.copy(
+            showDialog = false,
+            filterSettings = state.filterSettingsBackup
+        )
     }
 
     fun onBackPress() {
@@ -40,10 +59,21 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
         )
     }
 
+    fun onRegionSelect(region: Region) {
+        state = state.copy(
+            selectedRegion = region,
+            popularPlaces =
+            if (region != Region.TODAS) state.popularPlacesBackup.filter { it.region == region }
+            else state.popularPlacesBackup)
+    }
+
     fun onSettingsChange(action: HomeFilterDialogAction) {
         when (action) {
             HomeFilterDialogAction.OnApplyClick -> {
-                state = state.copy(filterSettingsBackup = state.filterSettings, showDialog = false)
+                state = state.copy(
+                    filterSettingsBackup = state.filterSettings,
+                    showDialog = false
+                )
             }
 
             HomeFilterDialogAction.OnMuseumClick -> {
@@ -83,7 +113,9 @@ class HomeViewModel @Inject constructor(private val repository: HomeRepository) 
     fun search() {
         viewModelScope.launch {
             repository.getTravelGuide(state.searchText, state.filterSettings).onSuccess {
-                state = state.copy(chatReply = it)
+                state = state.copy(
+                    chatReply = it
+                )
             }.onFailure { println("Hubo un error ${it.message}") }
         }
     }
