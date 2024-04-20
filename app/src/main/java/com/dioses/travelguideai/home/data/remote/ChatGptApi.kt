@@ -13,7 +13,7 @@ import retrofit2.http.POST
  ****/
 interface ChatGptApi {
     companion object {
-        const val BASE_URL = "https://api.openai.com/v1/"
+        const val BASE_URL = "https://api.openai.com/v1/chat/"
     }
 
     @POST("completions")

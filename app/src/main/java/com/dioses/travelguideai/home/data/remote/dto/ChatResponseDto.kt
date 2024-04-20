@@ -13,8 +13,6 @@ data class ChatResponseDto(
     val model: String,
     @field:Json(name = "object")
     val objectX: String,
-    @field:Json(name = "system_fingerprint")
-    val systemFingerprint: String,
     @field:Json(name = "usage")
     val usage: Usage,
 )
